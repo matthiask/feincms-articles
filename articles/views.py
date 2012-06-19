@@ -1,8 +1,10 @@
+from __future__ import absolute_import
+
 from django.views.generic import ListView
 
 from feincms.module.mixins import ContentView
 
-from models import Article
+from .models import Article
 
 
 class AppContentMixin(object):

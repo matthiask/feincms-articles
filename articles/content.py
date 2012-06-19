@@ -1,7 +1,9 @@
+from __future__ import absolute_import
+
 from django.db import models
 from django.template.loader import render_to_string
 
-from models import Article
+from .models import Article
 
 
 class ArticleList(models.Model):

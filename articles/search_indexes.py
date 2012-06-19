@@ -1,7 +1,9 @@
+from __future__ import absolute_import
+
 from haystack import indexes
 from django.db.models.fields import FieldDoesNotExist
 
-from models import Article
+from .models import Article
 
 
 class TempArticleIndex(indexes.SearchIndex):

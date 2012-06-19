@@ -1,20 +1,22 @@
+from __future__ import absolute_import
+
 import warnings
 import datetime
 
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from articles.models import Article
+from .models import Article
 
 
 def find(f, seq):
   """
   Return first item in sequence where f(item) == True.
-  e.g. 
+  e.g.
   fred = find(lambda person: person.name == 'Fred', peeps)
   """
   for item in seq:
-    if f(item): 
+    if f(item):
       return item
 
 
@@ -55,7 +57,7 @@ class ArticleDatePublisherTests(TestCase):
         if bool(find(lambda f: f.name == 'publication_date', Article._meta.local_fields)) \
            and bool(find(lambda f: f.name == 'publication_end_date', Article._meta.local_fields)):
             self.skip = False
-        else: 
+        else:
             warnings.warn("Skipping datepublisher tests. Extension not registered")
             self.skip = True
 
@@ -85,7 +87,7 @@ class ArticleTagsTests(TestCase):
     def setUp(self, *args, **kwargs):
         if bool(find(lambda f: f.name == 'tags', Article._meta.many_to_many)):
             self.skip = False
-        else: 
+        else:
             warnings.warn("Skipping tags tests. Extension not registered")
             self.skip = True
 
