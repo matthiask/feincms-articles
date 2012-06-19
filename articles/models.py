@@ -5,10 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import get_callable
 from django.conf.urls.defaults import patterns, url
 
-try:
-    from feincms.admin.item_editor import ItemEditor
-except ImportError:
-    from feincms.admin.editor import ItemEditor
+from feincms.admin.item_editor import ItemEditor
 
 from feincms.content.application import models as app_models
 from feincms.models import Base
