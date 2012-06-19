@@ -1,4 +1,6 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import ListView
+
+from feincms.module.mixins import ContentView
 
 from models import Article
 
@@ -14,7 +16,7 @@ class AppContentMixin(object):
         return super(AppContentMixin, self).render_to_response(context, **response_kwargs)
 
 
-class ArticleDetail(AppContentMixin, DetailView):
+class ArticleDetail(AppContentMixin, ContentView):
     model = Article
 
     def get_queryset(self):

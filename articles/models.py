@@ -6,9 +6,9 @@ from django.core.urlresolvers import get_callable
 from django.conf.urls.defaults import patterns, url
 
 from feincms.admin.item_editor import ItemEditor
-
 from feincms.content.application import models as app_models
 from feincms.models import Base
+from feincms.module.mixins import ContentModelMixin
 from feincms.utils.managers import ActiveAwareContentManagerMixin
 
 
@@ -16,7 +16,7 @@ class ArticleManager(ActiveAwareContentManagerMixin, models.Manager):
     active_filters = {'simple-active': Q(active=True)}
 
 
-class Article(Base):
+class Article(Base, ContentModelMixin):
     active = models.BooleanField(_('active'), default=True)
 
     title = models.CharField(_('title'), max_length=255)
